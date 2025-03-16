@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-karla: "Karla", sans-serif;
+  --font-darker: "Darker Grotesque", sans-serif;
+
+  --color-light: #fafafa;
+  --color-dark: #1e1e1e;
+  --color-blueAccent: #46739d;
+  --color-grayAccent: #6e6d7a;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-karla);
+}
+
+h4,
+h5,
+h6,
+span,
+button {
+  font-family: var(--font-darker);
+}
