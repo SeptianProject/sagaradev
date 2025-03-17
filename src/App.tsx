@@ -17,12 +17,12 @@ const App = () => {
   }, [])
 
   return (
-    <section className='px-6 md:px-14 bg-light flex flex-col gap-y-20 pb-40'>
+    <section className='px-6 md:px-14 bg-light flex flex-col md:gap-y-20 pb-40'>
       <Navbar isMobile={isMobile} />
       <HeroLayout isMobile={isMobile} />
       <JourneyLayout isMobile={isMobile} />
-      <ProjectsLayout isMobile={isMobile} />
-      <MemoriesLayout isMobile={isMobile} />
+      <ProjectsLayout />
+      <MemoriesLayout />
       <QuotesLayout isMobile={isMobile} />
       <Footer />
     </section>

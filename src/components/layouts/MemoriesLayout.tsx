@@ -1,56 +1,34 @@
-import type React from "react"
-
-interface MemoriesLayoutProps {
-     isMobile: boolean
-}
+import TextTitle from "../elements/TextTitle"
+import { assets } from "../../assets"
 
 const memories = [
-     {
-          id: 1,
-          image: "/placeholder.svg?height=300&width=300",
-          alt: "ICOM 2023 Award Ceremony",
-     },
-     {
-          id: 2,
-          image: "/placeholder.svg?height=300&width=300",
-          alt: "Team Photo",
-     },
-     {
-          id: 3,
-          image: "/placeholder.svg?height=300&width=300",
-          alt: "POLINEMA Award Ceremony",
-     },
-     {
-          id: 4,
-          image: "/placeholder.svg?height=300&width=300",
-          alt: "Team with Medals",
-     },
-     {
-          id: 5,
-          image: "/placeholder.svg?height=300&width=300",
-          alt: "Dinner Celebration",
-     },
-     {
-          id: 6,
-          image: "/placeholder.svg?height=300&width=300",
-          alt: "Group Photo",
-     },
+     { image: assets.Memo1, alt: "ICOM 2023 Award Ceremony", },
+     { image: assets.Memo2, alt: "Team Photo", },
+     { image: assets.Memo4, alt: "Team with Medals", },
+     { image: assets.Memo3, alt: "POLINEMA Award Ceremony", },
+     { image: assets.Memo5, alt: "Dinner Celebration", },
 ]
 
-const MemoriesLayout: React.FC<MemoriesLayoutProps> = ({ isMobile }) => {
+const MemoriesLayout = () => {
      return (
-          <div>
-               <h2 className="text-2xl font-bold mb-6">Git Commit -Memories</h2>
-               <div className={`grid ${isMobile ? "grid-cols-1 gap-4" : "grid-cols-3 gap-6"}`}>
-                    {memories.map((memory) => (
-                         <div key={memory.id} className="overflow-hidden rounded-lg">
+          <div className="space-y-10">
+               <TextTitle title='git commit -m "Memories"' />
+               <div className="grid grid-flow-col grid-cols-8 gap-3 w-full">
+                    {memories.map((memory, index) => {
+                         const bentoGrid = index === 0 ? 'col-span-3 row-span-2'
+                              : index === 2 ? 'col-span-3' : index === 3 ? 'col-span-3' : 'col-span-2'
+
+                         return (
                               <img
-                                   src={memory.image || "/placeholder.svg"}
+                                   key={index}
+                                   src={memory.image}
                                    alt={memory.alt}
-                                   className="w-full h-auto object-cover aspect-square"
+                                   className={`rounded-xl object-cover w-full h-full grayscale hover:grayscale-0 
+                                        transition duration-500 
+                                        ${bentoGrid}`}
                               />
-                         </div>
-                    ))}
+                         )
+                    })}
                </div>
           </div>
      )

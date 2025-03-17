@@ -1,12 +1,13 @@
 
 import Button from '../elements/Button'
-import CardMember from '../fragments/CardMember'
+import MemberCard from '../fragments/MemberCard'
 import Slider from 'react-slick'
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from 'react';
+import { assets } from '../../assets';
 
 interface HeroLayoutProps {
      isMobile: boolean
@@ -15,7 +16,7 @@ interface HeroLayoutProps {
 const sagaraMembers = [{
      name: 'Septian Asropik',
      role: 'FE Developer',
-     imageUrl: 'url(/images/john-doe.jpg)',
+     imageUrl: assets.Member1,
      socials: [
           { icon: FaLinkedin, url: 'https://linkedin.com' },
           { icon: FaInstagram, url: 'https://instagram.com' },
@@ -24,7 +25,7 @@ const sagaraMembers = [{
 }, {
      name: 'Natasya Juliana',
      role: 'UI/UX Designer',
-     imageUrl: 'url(/images/jane-doe.jpg)',
+     imageUrl: assets.Member2,
      socials: [
           { icon: FaLinkedin, url: 'https://linkedin.com' },
           { icon: FaInstagram, url: 'https://instagram.com' },
@@ -33,7 +34,7 @@ const sagaraMembers = [{
 }, {
      name: 'M. Rafli Dwi',
      role: 'BE Developer',
-     imageUrl: 'url(/images/john-smith.jpg)',
+     imageUrl: assets.Member3,
      socials: [
           { icon: FaLinkedin, url: 'https://linkedin.com' },
           { icon: FaInstagram, url: 'https://instagram.com' },
@@ -70,7 +71,7 @@ const HeroLayout: React.FC<HeroLayoutProps> = ({ isMobile }) => {
                          <Slider {...sliderSettings}>
                               {sagaraMembers.map((member, index) => (
                                    <div key={index} className="px-2">
-                                        <CardMember
+                                        <MemberCard
                                              name={member.name}
                                              role={member.role}
                                              imageUrl={member.imageUrl}
@@ -82,7 +83,7 @@ const HeroLayout: React.FC<HeroLayoutProps> = ({ isMobile }) => {
                     ) : (
                          <div className="flex gap-x-8">
                               {sagaraMembers.map((member, index) => (
-                                   <CardMember
+                                   <MemberCard
                                         key={index}
                                         name={member.name}
                                         role={member.role}

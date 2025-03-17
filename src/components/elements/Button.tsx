@@ -5,20 +5,25 @@ interface ButtonProps {
      title: string
      className?: string
      onClick: VoidFunction
+     isProjectBtn?: boolean
+     isSecondary?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({
      title,
      type = "button",
      className,
-     onClick
+     onClick,
+     isProjectBtn,
+     isSecondary
 }) => {
      return (
           <button
                type={type}
-               className={`bg-blueAccent text-white font-bold py-3 px-5 rounded-xl 
-                    hover:bg-blueAccent/90 transition duration-300 ease-in-out
-                    ${className}`}
+               className={`${isProjectBtn ? `${isSecondary ? 'bg-light text-dark hover:bg-light/90'
+                    : 'bg-blueAccent text-white hover:bg-blueAccent/90'} rounded-[18px] py-[10px] w-32`
+                    : 'bg-blueAccent text-white py-3 rounded-xl hover:bg-blueAccent/90'}
+                    font-semibold transition duration-300 ease-in-out ${className}`}
                onClick={onClick}>
                {title}
           </button>

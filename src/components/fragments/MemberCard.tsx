@@ -18,12 +18,13 @@ const CardMember: React.FC<CardMemberProps> = ({
      socials
 }) => {
      return (
-          <div className='relative bg-light h-[28rem] lg:h-[36rem] w-full rounded-2xl p-8 border border-grayAccent/30 overflow-hidden'
+          <div className='relative bg-light h-[28rem] lg:h-[36rem] w-full rounded-2xl p-5 md:p-8 
+          bg-center bg-cover overflow-hidden'
                style={{
-                    backgroundImage: `${imageUrl}`
+                    backgroundImage: `url(${imageUrl})`
                }}>
-               <div className='absolute bottom-0 from-[#052026] to-transparent bg-gradient-to-t h-1/2 left-0 w-full' />
-               <div className='absolute bottom-10 max-w-[20rem] md:max-w-[22rem] space-y-3'>
+               <div className='absolute bottom-0 from-[#052026] to-transparent bg-gradient-to-t h-3/4 left-0 w-full' />
+               <div className='absolute bottom-5 md:bottom-10 max-w-[20rem] md:max-w-[22rem] space-y-3'>
                     <div className='space-y-1 pr-5'>
                          <h1 className='text-light text-lg md:text-xl font-bold'>
                               {name} <span className='text-xl md:text-3xl'>•</span> {role}
