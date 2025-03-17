@@ -1,16 +1,19 @@
 import React from 'react'
 import { assets } from '../../assets'
 
-const Navbar = () => {
-     const [isHamburgerActive, setIsHamburgerActive] = React.useState(false)
-     const isMobile = window.innerWidth < 768
+interface NavbarItemProps {
+     isMobile: boolean
+}
 
-     const items = [
-          { name: 'Home', path: '/' },
-          { name: 'Sagara Team', path: '/' },
-          { name: 'Sagara Journey', path: '/' },
-          { name: 'Sagara Projects', path: '/contact' },
-     ]
+const items = [
+     { name: 'Home', path: '/' },
+     { name: 'Sagara Team', path: '/' },
+     { name: 'Sagara Journey', path: '/' },
+     { name: 'Sagara Projects', path: '/contact' },
+]
+
+const Navbar: React.FC<NavbarItemProps> = ({ isMobile }) => {
+     const [isHamburgerActive, setIsHamburgerActive] = React.useState(false)
 
      const handleHamburgerMenu = () => {
           setIsHamburgerActive(!isHamburgerActive)
@@ -19,7 +22,7 @@ const Navbar = () => {
      return (
           <nav className='relative flex justify-between md:justify-start items-center gap-x-10'>
                <img src={assets.Logo} alt="SagaraDev-Logo"
-                    className='w-40' />
+                    className='w-32 md:w-40' />
                <button type="button"
                     onClick={handleHamburgerMenu}
                     className="z-10 md:hidden text-dark hover:text-dark/70 
@@ -39,12 +42,12 @@ const Navbar = () => {
                </button>
                <ul className={`z-10 flex-col right-0 top-24 h-64 w-56 p-8 rounded-xl
                items-start gap-y-4 shadow-2xl border-b-4 border-r-4 border-grayAccent bg-light
-               md:flex-row md:w-full md:shadow-none md:h-auto md:items-center md:gap-x-10 md:border-none md:bg-transparent
+               md:flex-row md:w-fit md:shadow-none md:h-auto md:items-center md:p-0 md:gap-x-10 md:border-none md:bg-transparent
                ${isMobile && isHamburgerActive ? 'flex absolute' : 'hidden md:flex md:static'}`}>
                     {items.map((item, index) => (
-                         <li className=''>
-                              <a key={index} href={item.path}
-                                   className='text-base font-medium text-dark/70 hover:text-dark/90'>
+                         <li key={index} className=''>
+                              <a href={item.path}
+                                   className='text-base font-medium text-dark/80 hover:text-dark/90'>
                                    {item.name}
                               </a>
                          </li>

@@ -24,3 +24,7 @@ span,
 button {
   font-family: var(--font-darker);
 }
+
+button {
+  cursor: pointer;
+}
