@@ -1,5 +1,5 @@
 import type React from "react"
-import { assets } from "../../assets"
+import { quotes } from "../../assets"
 import TextTitle from "../elements/TextTitle"
 
 interface QuoteProps {
@@ -12,27 +12,6 @@ interface QuoteProps {
 interface QuotesLayoutProps {
      isMobile: boolean
 }
-
-const quotes: QuoteProps[] = [
-     {
-          text: "Coding adalah seni mengubah kafein menjadi solusi🐦👍🏻",
-          author: "Septian Aarapik",
-          role: "FE Developer",
-          avatar: assets.Member1,
-     },
-     {
-          text: "Kata mamah jangan lupa beli mie ayam, gapake ceker, sayurnya yang banyak.",
-          author: "Natasya Juliena",
-          role: "UI/UX Designer",
-          avatar: assets.Member2,
-     },
-     {
-          text: "Jangan malas, kalo malas jadinya kaya saya🤪🤟",
-          author: "M. Rafli Dwi S",
-          role: "BE Developer",
-          avatar: assets.Member3,
-     },
-]
 
 const QuoteCard: React.FC<QuoteProps> = ({
      author,

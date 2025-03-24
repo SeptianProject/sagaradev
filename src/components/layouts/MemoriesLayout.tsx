@@ -1,13 +1,5 @@
+import { memories } from "../../assets"
 import TextTitle from "../elements/TextTitle"
-import { assets } from "../../assets"
-
-const memories = [
-     { image: assets.Memo1, alt: "ICOM 2023 Award Ceremony", },
-     { image: assets.Memo2, alt: "Team Photo", },
-     { image: assets.Memo4, alt: "Team with Medals", },
-     { image: assets.Memo3, alt: "POLINEMA Award Ceremony", },
-     { image: assets.Memo5, alt: "Dinner Celebration", },
-]
 
 const MemoriesLayout = () => {
      return (

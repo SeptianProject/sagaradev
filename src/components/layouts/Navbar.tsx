@@ -1,16 +1,9 @@
 import React from 'react'
-import { assets } from '../../assets'
+import { assets, navItems } from '../../assets'
 
 interface NavbarItemProps {
      isMobile: boolean
 }
-
-const items = [
-     { name: 'Home', path: '/' },
-     { name: 'Sagara Team', path: '/' },
-     { name: 'Sagara Journey', path: '/' },
-     { name: 'Sagara Projects', path: '/contact' },
-]
 
 const Navbar: React.FC<NavbarItemProps> = ({ isMobile }) => {
      const [isHamburgerActive, setIsHamburgerActive] = React.useState(false)
@@ -44,7 +37,7 @@ const Navbar: React.FC<NavbarItemProps> = ({ isMobile }) => {
                items-start gap-y-4 shadow-2xl border-b-4 border-r-4 border-grayAccent bg-light
                md:flex-row md:w-fit md:shadow-none md:h-auto md:items-center md:p-0 md:gap-x-10 md:border-none md:bg-transparent
                ${isMobile && isHamburgerActive ? 'flex absolute' : 'hidden md:flex md:static'}`}>
-                    {items.map((item, index) => (
+                    {navItems.map((item, index) => (
                          <li key={index} className=''>
                               <a href={item.path}
                                    className='text-base font-medium text-dark/80 hover:text-dark/90'>

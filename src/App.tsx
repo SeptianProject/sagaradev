@@ -12,12 +12,13 @@ const App = () => {
 
   React.useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    handleResize()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   return (
-    <section className='px-6 md:px-14 bg-light flex flex-col md:gap-y-20 pb-40'>
+    <section className='px-6 md:px-14 bg-light flex flex-col gap-y-10 md:gap-y-20 pb-40'>
       <Navbar isMobile={isMobile} />
       <HeroLayout isMobile={isMobile} />
       <JourneyLayout isMobile={isMobile} />

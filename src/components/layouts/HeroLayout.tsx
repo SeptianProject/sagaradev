@@ -1,46 +1,14 @@
-
+import React from 'react';
+import Slider from 'react-slick'
 import Button from '../elements/Button'
 import MemberCard from '../fragments/MemberCard'
-import Slider from 'react-slick'
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React from 'react';
-import { assets } from '../../assets';
+import { sagaraMembers } from '../../assets';
 
 interface HeroLayoutProps {
      isMobile: boolean
 }
-
-const sagaraMembers = [{
-     name: 'Septian Asropik',
-     role: 'FE Developer',
-     imageUrl: assets.Member1,
-     socials: [
-          { icon: FaLinkedin, url: 'https://linkedin.com' },
-          { icon: FaInstagram, url: 'https://instagram.com' },
-          { icon: FaGithub, url: 'https://github.com' },
-     ]
-}, {
-     name: 'Natasya Juliana',
-     role: 'UI/UX Designer',
-     imageUrl: assets.Member2,
-     socials: [
-          { icon: FaLinkedin, url: 'https://linkedin.com' },
-          { icon: FaInstagram, url: 'https://instagram.com' },
-          { icon: FaGithub, url: 'https://github.com' },
-     ]
-}, {
-     name: 'M. Rafli Dwi',
-     role: 'BE Developer',
-     imageUrl: assets.Member3,
-     socials: [
-          { icon: FaLinkedin, url: 'https://linkedin.com' },
-          { icon: FaInstagram, url: 'https://instagram.com' },
-          { icon: FaGithub, url: 'https://github.com' },
-     ]
-}]
 
 const HeroLayout: React.FC<HeroLayoutProps> = ({ isMobile }) => {
      const sliderSettings = {

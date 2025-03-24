@@ -1,18 +1,8 @@
 import React from 'react'
-import { assets } from '../../assets'
+import { assets, footerItems } from '../../assets'
 
 const Footer = () => {
-     const sections = [
-          { name: 'Home', path: '/' },
-          { name: 'Sagara Team', path: '/' },
-          { name: 'Sagara Journey', path: '/' },
-          { name: 'Sagara Projects', path: '/' },
-     ]
 
-     const socials = [
-          { name: 'sagaradev@gmail.coom', path: 'https://gmail.com' },
-          { name: '+62345678910', path: 'https://web.whatsapp.com' },
-     ]
 
      return (
           <footer className='relative'>
@@ -20,8 +10,8 @@ const Footer = () => {
                     <img src={assets.Logo} alt="SagaraDev-Logo"
                          className='w-40' />
                     <div className='flex gap-x-20 md:pt-7'>
-                         <FooterItems items={sections} title='Sagara Dev' />
-                         <FooterItems items={socials} title='Hubungi Kami' />
+                         <FooterItems items={footerItems.sections} title='Sagara Dev' />
+                         <FooterItems items={footerItems.socials} title='Hubungi Kami' />
                     </div>
                </div>
                <div className='text-dark/80 py-4'>

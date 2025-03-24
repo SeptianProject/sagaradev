@@ -1,33 +1,6 @@
 import ProjectCard from "../fragments/ProjectCard"
-import { assets } from "../../assets"
+import { projects } from "../../assets"
 import TextTitle from "../elements/TextTitle"
-
-const projects = [
-     {
-          title: "Langkah Sritanjung Website",
-          description: "Whether you need a redesign or a new website experience.",
-          image: assets.ProjectImage,
-          webUrl: "https://sritanjung.sagaradev.com",
-     },
-     {
-          title: "Eksplosa Website",
-          description: "Whether you need a redesign or a new website experience.",
-          image: assets.ProjectImage,
-          webUrl: "https://eksplosa.sagaradev.com",
-     },
-     {
-          title: "Langkah Sritanjung Website",
-          description: "Whether you need a redesign or a new website experience.",
-          image: assets.ProjectImage,
-          webUrl: "https://sritanjung.sagaradev.com",
-     },
-     {
-          title: "Eksplosa Website",
-          description: "Whether you need a redesign or a new website experience.",
-          image: assets.ProjectImage,
-          webUrl: "https://eksplosa.sagaradev.com",
-     },
-]
 
 const ProjectsLayout = () => {
      return (
