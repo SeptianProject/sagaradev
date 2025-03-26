@@ -5,17 +5,10 @@ import JourneyLayout from './components/layouts/JourneyLayout'
 import ProjectsLayout from './components/layouts/ProjectsLayout'
 import MemoriesLayout from './components/layouts/MemoriesLayout'
 import QuotesLayout from './components/layouts/QuotesLayout'
-import React from 'react'
+import useMediaQuery from './hooks/useMediaQuery'
 
 const App = () => {
-  const [isMobile, setIsMobile] = React.useState(false)
-
-  React.useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768)
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  const isMobile = useMediaQuery('(max-width: 768px)')
 
   return (
     <section className='px-6 md:px-14 bg-light flex flex-col gap-y-10 md:gap-y-20 pb-40'>

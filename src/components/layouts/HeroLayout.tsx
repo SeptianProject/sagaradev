@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Slider from 'react-slick'
 import Button from '../elements/Button'
 import MemberCard from '../fragments/MemberCard'
@@ -11,17 +11,17 @@ interface HeroLayoutProps {
 }
 
 const HeroLayout: React.FC<HeroLayoutProps> = ({ isMobile }) => {
-     const sliderSettings = {
+     const sliderSettings = useMemo(() => ({
           infinite: false,
-          speed: 500,
+          speed: 600,
           slidesToShow: 1,
           slidesToScroll: 1,
           className: "w-full",
-     }
+     }), [])
 
      return (
           <>
-               <div className='flex flex-col items-center justify-center gap-y-3'>
+               <div id='home' className='flex flex-col items-center justify-center gap-y-3'>
                     <h1 className='text-[40px] md:text-7xl font-bold'>SAGARA DEV🌊</h1>
                     <p className='my-1 text-center text-sm md:text-lg max-w-[19rem] md:max-w-[35rem] text-dark/70'>
                          Like the ocean, we are deep in innovation, fluid in execution,
@@ -33,7 +33,7 @@ const HeroLayout: React.FC<HeroLayoutProps> = ({ isMobile }) => {
                          className='w-48'
                     />
                </div>
-               <div className='space-y-5'>
+               <div id='teams' className='space-y-5'>
                     <h1 className='text-2xl md:text-[40px] font-semibold'>Sagara Team</h1>
                     {isMobile ? (
                          <Slider {...sliderSettings}>

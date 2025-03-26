@@ -19,10 +19,10 @@ export const assets = {
 }
 
 export const navItems = [
-     { name: 'Home', path: '/' },
-     { name: 'Sagara Team', path: '/' },
-     { name: 'Sagara Journey', path: '/' },
-     { name: 'Sagara Projects', path: '/contact' },
+     { name: 'Home', target: 'home' },
+     { name: 'Sagara Team', target: 'teams' },
+     { name: 'Sagara Journey', target: 'journeys' },
+     { name: 'Sagara Projects', target: 'projects' },
 ]
 
 export const sagaraMembers = [{

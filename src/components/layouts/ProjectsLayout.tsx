@@ -4,9 +4,9 @@ import TextTitle from "../elements/TextTitle"
 
 const ProjectsLayout = () => {
      return (
-          <div className="space-y-10">
+          <div id="projects" className="space-y-10">
                <TextTitle title="Sagara Top Projects" />
-               <div className="flex flex-col md:grid grid-cols-2 gap-8">
+               <div className="flex flex-col md:grid grid-cols-2 gap-8 ">
                     {projects.map((project, index) => (
                          <ProjectCard
                               key={index}

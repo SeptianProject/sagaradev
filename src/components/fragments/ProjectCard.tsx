@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Button from '../elements/Button'
 
 interface ProjectCardProps {
@@ -14,6 +14,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
      title,
      webUrl
 }) => {
+     const handleVisitWebsite = React.useCallback(() => {
+          if (webUrl) {
+               window.open(webUrl, '_blank', 'noopener,noreferrer')
+          }
+     }, [webUrl])
+
      return (
           <div className='relative h-[24rem] w-full rounded-2xl bg-no-repeat bg-top bg-cover overflow-hidden group'
                style={{
@@ -36,7 +42,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                               isProjectBtn
                               isSecondary
                               title='Visit Website'
-                              onClick={() => { window.open(webUrl) }}
+                              onClick={handleVisitWebsite}
+                              disabled={!webUrl}
                          />
                     </div>
                </div>
@@ -44,4 +51,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
      )
 }
 
-export default ProjectCard
+export default memo(ProjectCard)

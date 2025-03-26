@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { IconType } from 'react-icons'
 
 interface CardMemberProps {
@@ -11,7 +11,7 @@ interface CardMemberProps {
      }[]
 }
 
-const CardMember: React.FC<CardMemberProps> = ({
+const MemberCard: React.FC<CardMemberProps> = ({
      name,
      role,
      imageUrl,
@@ -36,7 +36,9 @@ const CardMember: React.FC<CardMemberProps> = ({
                     <div className='flex gap-x-2'>
                          {socials?.map((social, index) => (
                               <a key={index} href={social.url}
-                                   className='rounded-full border border-light p-[6px] hover:bg-light/10'>
+                                   className='rounded-full border border-light p-[6px] hover:bg-light/10'
+                                   target="_blank"
+                                   rel="noopener noreferrer">
                                    <social.icon className='text-light text-xl' />
                               </a>
                          ))}
@@ -46,4 +48,4 @@ const CardMember: React.FC<CardMemberProps> = ({
      )
 }
 
-export default CardMember
+export default memo(MemberCard)

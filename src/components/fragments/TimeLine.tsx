@@ -1,4 +1,4 @@
-import type React from "react"
+import React, { memo } from "react"
 
 interface TimelineItem {
      id: number
@@ -14,6 +14,22 @@ interface TimelineProps {
      isMobile: boolean
 }
 
+const DotSeparator = memo(() => (
+     <div className="flex flex-col items-center mt-1.5 h-full">
+          {Array(10).fill(null).map((_, i) => (
+               <div key={i} className="w-0.5 h-2 bg-gray-200 my-1"></div>
+          ))}
+     </div>
+))
+
+const VerticalSeparator = memo(() => (
+     <div className="absolute left-1/2 top-28 transform -translate-x-1/2 h-full flex flex-col items-center">
+          {Array(25).fill(null).map((_, i) => (
+               <div key={i} className="w-1 h-4 bg-gray-200 my-1"></div>
+          ))}
+     </div>
+))
+
 const Timeline: React.FC<TimelineProps> = ({ items, isMobile }) => {
      if (isMobile) {
           return (
@@ -22,13 +38,7 @@ const Timeline: React.FC<TimelineProps> = ({ items, isMobile }) => {
                          <div key={item.id} className="flex mb-5">
                               <div className="flex flex-col items-center mr-4">
                                    <div className={`w-5 h-5 rounded-full mt-1.5 ${item.active ? "bg-blueAccent" : "bg-grayAccent"}`}></div>
-                                   {index < items.length - 1 && (
-                                        <div className="flex flex-col items-center mt-1.5 h-full">
-                                             {[...Array(10)].map((_, i) => (
-                                                  <div key={i} className={`w-0.5 h-2 bg-gray-200 my-1`}></div>
-                                             ))}
-                                        </div>
-                                   )}
+                                   {index < items.length - 1 && <DotSeparator />}
                               </div>
                               <div className="flex-1">
                                    <div className="text-sm text-grayaccbg-grayAccent mb-1.5">{item.dateRange}</div>
@@ -45,11 +55,7 @@ const Timeline: React.FC<TimelineProps> = ({ items, isMobile }) => {
 
      return (
           <div className="relative py-10">
-               <div className="absolute left-1/2 top-28 transform -translate-x-1/2 h-full flex flex-col items-center">
-                    {[...Array(25)].map((_, i) => (
-                         <div key={i} className="w-1 h-4 bg-gray-200 my-1"></div>
-                    ))}
-               </div>
+               <VerticalSeparator />
                {items.map((item, index) => {
                     const isEven = index % 2 === 0
                     return (
@@ -71,5 +77,5 @@ const Timeline: React.FC<TimelineProps> = ({ items, isMobile }) => {
      )
 }
 
-export default Timeline
+export default memo(Timeline)
 

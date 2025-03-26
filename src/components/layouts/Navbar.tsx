@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets, navItems } from '../../assets'
+import { Link } from 'react-scroll'
 
 interface NavbarItemProps {
      isMobile: boolean
@@ -39,10 +40,10 @@ const Navbar: React.FC<NavbarItemProps> = ({ isMobile }) => {
                ${isMobile && isHamburgerActive ? 'flex absolute' : 'hidden md:flex md:static'}`}>
                     {navItems.map((item, index) => (
                          <li key={index} className=''>
-                              <a href={item.path}
+                              <Link to={item.target} smooth duration={500} offset={-20}
                                    className='text-base font-medium text-dark/80 hover:text-dark/90'>
                                    {item.name}
-                              </a>
+                              </Link>
                          </li>
                     ))}
                </ul>
